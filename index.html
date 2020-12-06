@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Books</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <img src="src/logo.png" width="400">
+  <button class="create-book-button">Add new Book</button>
+
+  <div class="pop-up">
+    <form class="input-form" id="input-form">
+
+      <div>
+        <span class="close-button">&times;</span>
+        <legend>New Book</legend>
+      </div>
+   
+      <input type="text" name="title" placeholder="Title" autocomplete="off">
+      <input type="text" name="author" placeholder="Author" autocomplete="off">
+      <input type="number" name="pages" placeholder="Pages" autocomplete="off">
+      
+      <div>
+        <label for="read">Already read?</label>
+        <input type="checkbox" name="read">
+      </div>
+
+      <button type="submit" form="input-form" class="add-book-button">Add</button>
+      
+    </form>
+  </div>
+  <ul class="library-list"></ul>
+</body>
+</html>
