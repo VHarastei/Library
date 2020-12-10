@@ -13,12 +13,13 @@ closePopUp.addEventListener('click', () => {
 
 let addBookBtn = document.querySelector('.add-book-button');
 
-addBookBtn.addEventListener('click', (e) => {
+form.addEventListener('submit', (e) => {
     e.preventDefault();
     addBook();
 });
 
 let library = [];
+reload();
 
 function Book(title, author, pages, read) {
     this.title = title;
@@ -30,14 +31,15 @@ function Book(title, author, pages, read) {
 function addBook() {
     library.push(new Book(
         form.title.value,
-        form.author.value,
+        form.author.value, 
         form.pages.value,
         form.read.checked ) 
     );
 
     popUp.style.display = 'none';
-    form.reset();
+    setData();
     render();
+    form.reset();
 }
 function render() {
     let libraryList = document.querySelector('.library-list');
@@ -88,11 +90,28 @@ function createBookDOM(item) {
 
     readDiv.addEventListener('click', () => {
         item.read = !item.read;
+        setData();
         render();
     })
 
     removeDiv.addEventListener('click', () => {
         library.splice(library.indexOf(item), 1);
+        setData();
         render();
     })
+}
+
+function setData() {
+    localStorage.setItem('library', JSON.stringify(library) );
+}
+
+function reload() {
+    if(!localStorage.library) {
+        render()
+    } else {
+        let bookObj = localStorage.getItem('library');
+        bookObj = JSON.parse(bookObj)
+        library = bookObj;
+        render();
+    }
 }

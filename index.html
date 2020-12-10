@@ -3,25 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Books</title>
+  <title>Library</title>
   <link rel="stylesheet" href="style.css">
   <script src="app.js" defer></script>
+  <script src="gradify.js" defer></script>
+  <link rel = "icon" href = "src/icon.png" type = "image/x-icon">
 </head>
 <body>
   <img src="src/logo.png" width="400">
   <button class="create-book-button">Add new Book</button>
 
   <div class="pop-up">
-    <form class="input-form" id="input-form">
+    <form class="input-form" id="input-form" method="post">
 
       <div>
         <span class="close-button">&times;</span>
         <legend>New Book</legend>
       </div>
    
-      <input type="text" name="title" placeholder="Title" autocomplete="off">
-      <input type="text" name="author" placeholder="Author" autocomplete="off">
-      <input type="number" name="pages" placeholder="Pages" autocomplete="off">
+      <input type="text" name="title" placeholder="Title" autocomplete="off" required>
+      <input type="text" name="author" placeholder="Author" autocomplete="off" required>
+      <input type="number" name="pages" placeholder="Pages" autocomplete="off" required>
       
       <div>
         <label for="read">Already read?</label>
